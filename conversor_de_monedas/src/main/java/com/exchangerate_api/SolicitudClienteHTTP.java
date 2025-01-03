@@ -1,5 +1,6 @@
 package com.exchangerate_api;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -24,10 +25,12 @@ public class SolicitudClienteHTTP {
     }
 
     public HttpResponse<String> enviarPeticion(HttpRequest request) {
+
         try {
             return client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (Exception e) {
-            throw new RuntimeException("Error al enviar la petición HTTP", e);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException("Error al enviar la petición HTTP" ,e);
         }
+
     }
 }

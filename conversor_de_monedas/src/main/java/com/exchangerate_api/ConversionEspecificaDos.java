@@ -14,20 +14,24 @@ public class ConversionEspecificaDos {
         String result = jsonObject.get("result").getAsString();
         JsonObject conversionRates = jsonObject.getAsJsonObject("conversion_rates");
 
-        // Obtener valores específicos del mapa conversion_rates
-        double tasaDeConversion = conversionRates.get(codigoMonedaConvertir).getAsDouble();
+        try{
+            // Obtener valores específicos del mapa conversion_rates
+            double tasaDeConversion = conversionRates.get(codigoMonedaConvertir).getAsDouble();
+            // Imprimir valores
+            System.out.println("Resultado: " + result);
+            System.out.println("Tasa de conversion: " + tasaDeConversion);
+
+            // Tratamiento adicional con las tasas
+            double conversionEspecifica = tasaDeConversion * valorAConvertir;
+
+            System.out.println("La conversion de: " + valorAConvertir + " " + codigoMonedaBase +
+                    " equivale a: " + String.format("%.2f", conversionEspecifica) + codigoMonedaConvertir);
+        }catch (NullPointerException e){
+            System.out.println("No se pudo realizar la conversion, intentelo nuevamente!!!");
+
+        }
 
 
-        // Imprimir valores
-        System.out.println("Resultado: " + result);
-        System.out.println("Tasa de conversion: " + tasaDeConversion);
 
-
-        // Tratamiento adicional con las tasas
-        double conversionEspecifica = tasaDeConversion * valorAConvertir;
-
-
-        System.out.println("La conversion de: " + valorAConvertir + " " + codigoMonedaBase +
-                " equivale a: " + String.format("%.2f", conversionEspecifica) + codigoMonedaConvertir);
     }
 }
