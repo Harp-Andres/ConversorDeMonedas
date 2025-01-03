@@ -82,7 +82,7 @@ Datos guardados en archivo JSON.
 ## Instalación y Ejecución
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/conversor-monedas.git
+   https://github.com/Harp-Andres/ConversorDeMonedas.git
    ```
 2. Importar el proyecto en un IDE como IntelliJ IDEA o Eclipse.
 3. Asegurarse de agregar Gson al classpath.
